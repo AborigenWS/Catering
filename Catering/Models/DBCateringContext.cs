@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Catering.Models
 {
-    public partial class DBCaterinContext : DbContext
+    public partial class DBCateringContext : DbContext
     {
-        public DBCaterinContext()
+        public DBCateringContext()
         {
         }
 
-        public DBCaterinContext(DbContextOptions<DBCaterinContext> options)
+        public DBCateringContext(DbContextOptions<DBCateringContext> options)
             : base(options)
         {
         }
