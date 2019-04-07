@@ -6,7 +6,7 @@ namespace Catering.Models
 {
     public partial class DBCateringContext : DbContext
     {
-        public DBCateringContext()
+        public DBCateringContext() // constructor
         {
         }
 
