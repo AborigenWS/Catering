@@ -1,5 +1,5 @@
 ﻿import React from 'react'
-import './checkin.css';
+import './auth.css';
 
 export default class CheckIn extends React.Component {
     constructor(props) {

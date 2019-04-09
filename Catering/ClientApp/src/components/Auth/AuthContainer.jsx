@@ -1,13 +1,12 @@
 ﻿import React from 'react'
-import CheckIn from './CheckIn';
+import Auth from './Auth';
 import { connect } from 'react-redux';
-import { setPasswordText, setEmailText } from '../../store/Check-In/actions';
+import { setPasswordText, setEmailText } from '../../store/Auth/actions';
 
-class CheckInContainer extends React.Component {
+class AuthContainer extends React.Component {
     render() {
-        console.log("toProps" + this.props.email);
         return (
-            <CheckIn
+            <Auth
                 email={this.props.email}
                 password={this.props.password}
                 setEmailText={this.props.setEmailText}
@@ -18,11 +17,9 @@ class CheckInContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state.email);
-    console.log(state.checkIn.email);
     return {
-        email: state.checkIn.email,
-        password: state.checkIn.password
+        email: state.auth.email,
+        password: state.auth.password
     };
 };
 const mapDispatchToProps = {
@@ -30,4 +27,4 @@ const mapDispatchToProps = {
     setPasswordText
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CheckInContainer); 
+export default connect(mapStateToProps, mapDispatchToProps)(AuthContainer); 
