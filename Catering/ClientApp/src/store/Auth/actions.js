@@ -11,19 +11,20 @@ export const setPasswordText = (password) => ({
     payload: password 
 });
 
-export const sendAccount = () => {
-    console.log('start to send message');
+export const sendAccount = (state) => {
     fetch('/api/Account/Test', {
         method: 'post',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            email: 'emailfwefw',
+            email: state.email,
+            password: state.password
         })
     })
-        .then((response) => {
-            if (response.status !== 200) console.log('fetch dont work');
-            response.json().then((data) => console.log('ok  ' + data));
-        })
-        .catch((error) => {
-            window.alert('Failed', error)
-        });
+        //.then((response) => {
+        //    if (response.status !== 200) console.log('fetch dont work');
+        //    response.json().then((data) => console.log('ok  ' + data));
+        //})
+        //.catch((error) => {
+        //    window.alert('Failed ' + error, error)
+        //});
 };

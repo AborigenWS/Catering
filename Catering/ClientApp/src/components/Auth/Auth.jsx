@@ -3,21 +3,19 @@ import './auth.css';
 
 export default class CheckIn extends React.Component {
     onEmailChange = (event) => {
-        console.log(event.target.value);
         this.props.setEmailText(event.target.value);
     }
     onPasswordChange = (event) => {
         this.props.setPasswordText(event.target.value);
     }
     onButtonClick = (event) => {
-        this.props.sendAccount();
-        console.log('press button');
+        this.props.sendAccount(this.props);
     }
 
     render() {
         const { email, password } = this.props;
         return (
-            <div>
+            <div className="auth-form">
                 <form>
                     <h3>Вход</h3>
                     <div className="input">
@@ -38,7 +36,7 @@ export default class CheckIn extends React.Component {
                             onChange={this.onPasswordChange}
                         />
                     </div>
-                    <input name="button" placeholder="Button" type="submit" onChange={this.onButtonClick} />
+                    <button onClick={this.onButtonClick}>Отправить</button>
                 </form>
                 Мыло: {email}
                 <br />

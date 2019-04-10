@@ -11,9 +11,19 @@ namespace Catering.Controllers
     {
         [Route("[action]")]
         [HttpPost]
-        public void Test([FromBody]string email)
+        public IActionResult Test([FromBody]A account)
         {
-            string test = email;
+            Console.Clear();
+            Console.WriteLine("это мыло");
+            Console.WriteLine(account.Email + " " + account.Password);
+            Console.WriteLine("это конец мыла");
+            return Ok();
         }
+        
+    }
+    public class A
+    {
+        public string Password { get; set; }
+        public string Email { get; set; }
     }
 }
