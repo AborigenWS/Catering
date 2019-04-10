@@ -5,7 +5,6 @@ import { setPasswordText, setEmailText, sendAccount } from '../../store/Auth/act
 
 class AuthContainer extends React.Component {
     render() {
-        console.log('container');
         return (
             <Auth
                 email={this.props.email}

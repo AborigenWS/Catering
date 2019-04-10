@@ -8,23 +8,27 @@ export const setEmailText = (email) => ({
 
 export const setPasswordText = (password) => ({
     type: AUTH_CHANGE_PASSWORD_TEXT,
-    payload: password 
+    payload: password
 });
 
 export const sendAccount = (state) => {
-    fetch('/api/Account/Test', {
-        method: 'post',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            email: state.email,
-            password: state.password
+    return function kostul() {
+        const request = fetch('/api/account/test', {
+            method: 'post',
+            body: JSON.stringify({
+                email: state.email,
+                password: state.password
+            }),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        return request.then((response) => {
+            if (response.ok) {
+                window.alert('Это response ok');
+                response.json();
+            }
         })
-    })
-        //.then((response) => {
-        //    if (response.status !== 200) console.log('fetch dont work');
-        //    response.json().then((data) => console.log('ok  ' + data));
-        //})
-        //.catch((error) => {
-        //    window.alert('Failed ' + error, error)
-        //});
-};
+            .catch((error) => {
+                window.alert(error);
+            });
+    }
+}

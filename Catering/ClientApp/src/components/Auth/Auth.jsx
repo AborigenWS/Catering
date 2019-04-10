@@ -1,14 +1,14 @@
 ﻿import React from 'react'
 import './auth.css';
 
-export default class CheckIn extends React.Component {
+export default class Auth extends React.Component {
     onEmailChange = (event) => {
         this.props.setEmailText(event.target.value);
     }
     onPasswordChange = (event) => {
         this.props.setPasswordText(event.target.value);
     }
-    onButtonClick = (event) => {
+    onButtonClick = () => {
         this.props.sendAccount(this.props);
     }
 

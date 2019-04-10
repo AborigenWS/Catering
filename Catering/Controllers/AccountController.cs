@@ -13,17 +13,22 @@ namespace Catering.Controllers
         [HttpPost]
         public IActionResult Test([FromBody]A account)
         {
-            Console.Clear();
-            Console.WriteLine("это мыло");
-            Console.WriteLine(account.Email + " " + account.Password);
-            Console.WriteLine("это конец мыла");
-            return Ok();
+            if (ModelState.IsValid)
+            {
+                Console.Clear();
+                Console.WriteLine("это мыло");
+                Console.WriteLine(account.Email + " " + account.Password);
+                Console.WriteLine("это конец мыла");
+
+                return Ok();
+            }
+            return BadRequest();
         }
         
     }
     public class A
     {
-        public string Password { get; set; }
         public string Email { get; set; }
+        public string Password { get; set; }
     }
 }
