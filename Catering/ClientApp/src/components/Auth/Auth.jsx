@@ -2,17 +2,16 @@
 import './auth.css';
 
 export default class CheckIn extends React.Component {
-    constructor(props) {
-        super(props);
-        this.onEmailChange = this.onEmailChange.bind(this);
-        this.onPasswordChange = this.onPasswordChange.bind(this);
-    }
-
-    onEmailChange(event) {
+    onEmailChange = (event) => {
+        console.log(event.target.value);
         this.props.setEmailText(event.target.value);
     }
-    onPasswordChange(event) {
+    onPasswordChange = (event) => {
         this.props.setPasswordText(event.target.value);
+    }
+    onButtonClick = (event) => {
+        this.props.sendAccount();
+        console.log('press button');
     }
 
     render() {
@@ -39,10 +38,11 @@ export default class CheckIn extends React.Component {
                             onChange={this.onPasswordChange}
                         />
                     </div>
+                    <input name="button" placeholder="Button" type="submit" onChange={this.onButtonClick} />
                 </form>
-                email: {email}
+                Мыло: {email}
                 <br />
-                password: {password}
+                Пароль: {password}
             </div>
         );
     }

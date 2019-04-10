@@ -15,9 +15,9 @@ export default class Registration extends React.Component {
     render() {
         const { email, password, repeatPassword } = this.props;
         return (
-            <div>
+            <div className="registration-form">
                 <form>
-                    <h3>Вход</h3>
+                    <h3>Регистрация</h3>
                     <div className="input">
                         <input
                             type="text"

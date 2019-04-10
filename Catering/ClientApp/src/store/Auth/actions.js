@@ -10,3 +10,20 @@ export const setPasswordText = (password) => ({
     type: AUTH_CHANGE_PASSWORD_TEXT,
     payload: password 
 });
+
+export const sendAccount = () => {
+    console.log('start to send message');
+    fetch('/api/Account/Test', {
+        method: 'post',
+        body: JSON.stringify({
+            email: 'emailfwefw',
+        })
+    })
+        .then((response) => {
+            if (response.status !== 200) console.log('fetch dont work');
+            response.json().then((data) => console.log('ok  ' + data));
+        })
+        .catch((error) => {
+            window.alert('Failed', error)
+        });
+};
